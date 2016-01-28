@@ -287,7 +287,7 @@ class Request
         $xmlErrorsFlag = libxml_use_internal_errors(true);
         try {
             $dom = new DOMDocument;
-            $dom->loadXML($request);
+            $dom->loadXML($request, LIBXML_PARSEHUGE);
             foreach ($dom->childNodes as $child) {
                 if ($child->nodeType === XML_DOCUMENT_TYPE_NODE) {
                     throw new Exception\ValueException(

@@ -417,7 +417,7 @@ abstract class AbstractValue
         }
 
         try {
-            $xml = new \SimpleXMLElement($xml);
+            $xml = new \SimpleXMLElement($xml, LIBXML_PARSEHUGE);
         } catch (\Exception $e) {
             // The given string is not a valid XML
             throw new Exception\ValueException(
